@@ -16,6 +16,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="SVC-gM-UwF" id="QpG-2P-pmR"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Photographer Cell" textLabel="KPD-bh-Z95" detailTextLabel="cca-pU-EBH" style="IBUITableViewCellStyleSubtitle" id="m8b-hW-CHc">
@@ -49,10 +52,13 @@
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="SVC-gM-UwF" id="RBl-eM-yM8"/>
-                            <outlet property="delegate" destination="SVC-gM-UwF" id="xNd-c0-3pJ"/>
+                            <outlet property="delegate" destination="SVC-gM-UwF" id="e6L-Yk-Jrb"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="lWp-BL-f7F"/>
+                    <connections>
+                        <outlet property="seachBar" destination="ZBG-xE-YZE" id="LeO-nW-JZO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xq9-6A-dGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,6 +156,26 @@
             <point key="canvasLocation" x="-318" y="-348"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="ImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PhotographersTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotographersTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="seachBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="PhotosByPhotographerTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosByPhotographerTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

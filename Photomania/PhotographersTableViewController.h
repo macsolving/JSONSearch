@@ -15,5 +15,6 @@
 @interface PhotographersTableViewController : CoreDataTableViewController
 
 @property (nonatomic, strong) UIManagedDocument *photoDatabase;  // Model is a Core Data database of photos
+@property (nonatomic, strong) IBOutlet UISearchBar *seachBar;
 
 @end

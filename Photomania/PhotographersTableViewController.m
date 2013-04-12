@@ -19,6 +19,46 @@
 // 13. Create an NSFetchRequest to get all Photographers and hook it up to our table via an NSFetchedResultsController
 // (we inherited the code to integrate with NSFRC from CoreDataTableViewController)
 
+
+#pragma mark - UISearchBar Delegate Methods
+
+- (void) searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photographer"];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+    // no predicate because we want ALL the Photographers
+//    if ([[searchBar text] length] == 0)
+//    {   request.predicate = [NSPredicate predicateWithFormat:@"name contains[cd] %@",@"%"];}
+    if ([[searchBar text] length] != 0)
+        request.predicate = [NSPredicate predicateWithFormat:@"name contains[cd] %@", [searchBar text]];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.photoDatabase.managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+
+}
+
+- (void) textDidChange:(UISearchBar *)searchBar
+{
+ 
+  /*
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photographer"];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+    // no predicate because we want ALL the Photographers
+    if (![searchBar text])
+    { request.predicate = nil;}
+    else
+        request.predicate = [NSPredicate predicateWithFormat:@"name contains[cd] %@", [searchBar text]];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.photoDatabase.managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+    */
+}
+
+
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photographer"];
@@ -105,6 +145,28 @@
         // url is now "<Documents Directory>/Default Photo Database"
         self.photoDatabase = [[UIManagedDocument alloc] initWithFileURL:url]; // setter will create this for us on disk
     }
+    
+    
+    UIView * subView;
+    NSArray * subViews = [self.seachBar subviews];
+    for(subView in subViews)
+    {
+        if( [subView isKindOfClass:[UITextField class]] )
+        {
+            ((UITextField*)subView).delegate=self;
+            ((UITextField*)subView).returnKeyType=UIReturnKeyDone;
+            [(UITextField *)subView setEnablesReturnKeyAutomatically:NO];
+            break;
+        }
+    }
+    
+    
+}
+
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return TRUE;
 }
 
 // 14. Load up our cell using the NSManagedObject retrieved using NSFRC's objectAtIndexPath:
