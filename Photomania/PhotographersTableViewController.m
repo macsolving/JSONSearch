@@ -10,6 +10,7 @@
 #import "FlickrFetcher.h"
 #import "Photographer.h"
 #import "Photo+Flickr.h"
+#import "SwipeyCell.h"
 
 @implementation PhotographersTableViewController
 
@@ -189,6 +190,10 @@
     
     return cell;
 }
+
+
+
+
 
 // 19. Support segueing from this table to any view controller that has a photographer @property.
 

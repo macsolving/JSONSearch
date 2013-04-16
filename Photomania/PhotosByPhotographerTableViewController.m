@@ -55,7 +55,11 @@
     // Configure the cell...
     Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath]; // ask NSFRC for the NSMO at the row in question
     cell.textLabel.text = photo.title;
+    
     cell.detailTextLabel.text = photo.subtitle;
+    [cell.contentView setBackgroundColor : [UIColor  whiteColor]];
+    cell.backgroundColor = [UIColor  whiteColor];
+    [cell.contentView setOpaque:YES];
     
     return cell;
 }

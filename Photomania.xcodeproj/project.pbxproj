@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FD15F09171CC1B000ECF1EB /* SwipeyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD15F08171CC1AF00ECF1EB /* SwipeyCell.m */; };
 		EC0C8864146CA4B300EF6DDE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0C8863146CA4B300EF6DDE /* UIKit.framework */; };
 		EC0C8866146CA4B300EF6DDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0C8865146CA4B300EF6DDE /* Foundation.framework */; };
 		EC0C8868146CA4B300EF6DDE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0C8867146CA4B300EF6DDE /* CoreGraphics.framework */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8FD15F07171CC1AF00ECF1EB /* SwipeyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeyCell.h; sourceTree = "<group>"; };
+		8FD15F08171CC1AF00ECF1EB /* SwipeyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeyCell.m; sourceTree = "<group>"; };
 		EC0C885F146CA4B300EF6DDE /* Photomania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photomania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0C8863146CA4B300EF6DDE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EC0C8865146CA4B300EF6DDE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -109,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				EC0C8875146CA4B300EF6DDE /* MainStoryboard.storyboard */,
+				8FD15F07171CC1AF00ECF1EB /* SwipeyCell.h */,
+				8FD15F08171CC1AF00ECF1EB /* SwipeyCell.m */,
 				EC0C888A146CA55600EF6DDE /* PhotographersTableViewController.h */,
 				EC0C888B146CA55600EF6DDE /* PhotographersTableViewController.m */,
 				EC0C888D146CA5BC00EF6DDE /* PhotosByPhotographerTableViewController.h */,
@@ -238,6 +243,7 @@
 				EC0C889E146CAB1C00EF6DDE /* Photo.m in Sources */,
 				EC0C88A1146CAC0700EF6DDE /* Photo+Flickr.m in Sources */,
 				EC0C88A4146CADFD00EF6DDE /* Photographer+Create.m in Sources */,
+				8FD15F09171CC1B000ECF1EB /* SwipeyCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +355,7 @@
 				EC0C887F146CA4B300EF6DDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
