@@ -57,7 +57,7 @@ BOOL    colorSet;
     CGPoint currentPosition =	[[allTouches objectAtIndex:0] locationInView:self];
     CGPoint lastPosition = [[allTouches objectAtIndex:0] previousLocationInView:self];
     CGFloat xDif = lastPosition.x - currentPosition.x;
-    CGFloat ySDif = lastPosition.y - startPoint.y;
+    CGFloat ySDif = startPoint.y - lastPosition.y ;
     
   //  [self.contentView setOpaque:YES];
     
@@ -72,7 +72,7 @@ BOOL    colorSet;
          colorSet = true;
     }
     }
-    if( fabs(ySDif) >40 )
+ /*   if( fabs(ySDif) >120.0 )
     {
         
         CGRect f = self.frame;
@@ -81,13 +81,13 @@ BOOL    colorSet;
         [self.superview setBackgroundColor: [UIColor whiteColor]];
     }
     else
-    {
+    {*/
         CGRect f = self.frame;
         f.origin.x = self.frame.origin.x-xDif;
     
         f.size.width = self.frame.size.width;
         self.frame = f;
-    }
+    //}
     [super touchesMoved:touches withEvent:event];
     [self.textLabel setTextColor:[UIColor blackColor]];
 }
